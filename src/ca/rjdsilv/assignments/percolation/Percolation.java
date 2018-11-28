@@ -60,7 +60,7 @@ public class Percolation {
 			int rr = -1;
 			int lr = -1;
 
-			// Get al the existing neighbours.
+			// Get all the existing neighbours.
 			if (hasTopNbr(r)) {
 				statusMatrix[r][c] |= statusMatrix[r - 1][c];
 				if (isOpen((row - 1), col)) {
@@ -94,7 +94,7 @@ public class Percolation {
 				}
 			}
 
-			// If the current node root is the top node, it is full.
+			// Gets the current root for the current node after the unions. Update its root.
 			final int pRoot = wquf.find(p);
 			updateRootStatus(pRoot, tr, br, rr, lr, r, c);
 			if (!percolates) {

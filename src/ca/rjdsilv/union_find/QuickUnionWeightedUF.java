@@ -1,7 +1,7 @@
 package ca.rjdsilv.union_find;
 
 public class QuickUnionWeightedUF extends AbstractQuickUnionUF {
-	int[] sz;
+	private int[] sz;
 
 	public QuickUnionWeightedUF(int n) {
 		super(n);
@@ -15,22 +15,22 @@ public class QuickUnionWeightedUF extends AbstractQuickUnionUF {
 
 	@Override
 	public void union(int p, int q) {
-		int i = root(p);
-		int j = root(q);
+		int rp = root(p);
+		int rq = root(q);
 
-		if (i != j) {
-			if (sz[i] < sz[j]) {
-				id[i] = j;
-				sz[j] += sz[i];
+		if (rp != rq) {
+			if (sz[rp] < sz[rq]) {
+				id[rp] = rq;
+				sz[rq] += sz[rp];
 			} else {
-				id[j] = i;
-				sz[i] += sz[j];
+				id[rq] = rp;
+				sz[rp] += sz[rq];
 			}
 		}
 	}
 
 	@Override
 	public int find(int p) {
-		return 0;
+		return root(p);
 	}
 }

@@ -1,4 +1,4 @@
-package ca.rjdsilv.datastructure;
+package ca.rjdsilv.datastructure.stack;
 
 public interface Stack<T> {
 	void push(T item);

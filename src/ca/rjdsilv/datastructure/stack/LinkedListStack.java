@@ -1,4 +1,4 @@
-package ca.rjdsilv.datastructure;
+package ca.rjdsilv.datastructure.stack;
 
 import edu.princeton.cs.algs4.Stopwatch;
 

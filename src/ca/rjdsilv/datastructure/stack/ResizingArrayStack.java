@@ -9,7 +9,7 @@ public final class ResizingArrayStack<T> extends AbstractStack<T> {
 
 	private int n = 0;
 	private T[] array;
-	private Class<T> clazz = null;
+	private final Class<T> clazz;
 
 	public static <T> Stack<T> newInstance(Class<T> clazz) {
 		return new ResizingArrayStack<>(clazz);
@@ -44,6 +44,7 @@ public final class ResizingArrayStack<T> extends AbstractStack<T> {
 	@SuppressWarnings("unchecked")
 	private ResizingArrayStack(Class<T> clazz) {
 		this.array = (T[]) Array.newInstance(clazz, INIT_CAPACITY);
+		this.clazz = clazz;
 	}
 
 	@Override
@@ -51,7 +52,6 @@ public final class ResizingArrayStack<T> extends AbstractStack<T> {
 	public void push(T item) {
 		if (item == null) throw new IllegalArgumentException("Item can't be null!");
 
-		if (clazz == null) clazz = (Class<T>) item.getClass();
 		resize();
 		array[n++] = item;
 	}

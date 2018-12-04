@@ -1,38 +1,10 @@
 package ca.rjdsilv.datastructure.stack;
 
-import edu.princeton.cs.algs4.Stopwatch;
-
 public final class LinkedListStack<T> extends AbstractStack<T> {
 	private Node<T> first = null;
 
 	public static <T> Stack<T> newInstance() {
 		return new LinkedListStack<T>();
-	}
-
-	public static void main(String[] args) {
-		final int trials = 50;
-		final Stack<Long> stack = LinkedListStack.newInstance();
-		double totalPush  = 0.0;
-		double totalPop   = 0.0;
-		double totalTotal = 0.0;
-
-		for (int n = 0; n < trials; n++) {
-			final Stopwatch totalTime = new Stopwatch();
-
-			final Stopwatch pushTime = new Stopwatch();
-			for (long i = 0; i < 5_000_000L; i++) stack.push(i);
-			totalPush += pushTime.elapsedTime();
-
-			final Stopwatch popTime = new Stopwatch();
-			for (long i = 0; i < 5_000_000L; i++) stack.pop();
-			totalPop += popTime.elapsedTime();
-
-			totalTotal += totalTime.elapsedTime();
-		}
-
-		System.out.println(String.format("Linked List Push  => Total time: %.5f, Average time: %.5f", totalPush , totalPush  / trials));
-		System.out.println(String.format("Linked List Pop   => Total time: %.5f, Average time: %.5f", totalPop  , totalPop   / trials));
-		System.out.println(String.format("Linked List Total => Total time: %.5f, Average time: %.5f", totalTotal, totalTotal / trials));
 	}
 
 	private LinkedListStack() {

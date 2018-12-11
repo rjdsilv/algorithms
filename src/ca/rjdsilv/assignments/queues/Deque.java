@@ -1,4 +1,4 @@
-package ca.rjdsilv.assignments.datastructures;
+package ca.rjdsilv.assignments.queues;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;
